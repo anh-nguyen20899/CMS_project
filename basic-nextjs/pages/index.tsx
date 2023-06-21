@@ -4,26 +4,19 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Head from "next/head"
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from '@storyblok/react'
-
+import Layout from "../components/Layout";
 export default function Home(props: any) {
   const story = useStoryblokState(props.story);
   return (
     <main>
-      <div>
+        <div>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
- 
-      <header>
-        <h1>
-          { props.story ? props.story.name : 'My Site' }
-        </h1>
-      </header>
- 
-      <main>
+    <Layout>
       <StoryblokComponent blok={story?.content} />
-      </main>
+    </Layout>
     </div>
     </main>
   )
